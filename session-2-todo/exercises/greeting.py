@@ -91,7 +91,7 @@ def create_introduction(name, age):
     # Hint: You need to use str(age) to convert the number to a string
     # Format: "My name is " + name + " and I am " + str(age) + " years old."
 
-    return "My name is " + name + " and I am  " + str(age) + " years old."
+    return "My name is " + name + " and I am " + str(age) + " years old."
 
 
 def create_welcome_message(name, city):
