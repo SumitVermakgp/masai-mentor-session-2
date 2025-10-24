@@ -24,34 +24,19 @@ def create_greeting(name):
     """
     Create a greeting message for a person.
 
-    TODO: Complete this function
-    It should take a name and return "Hello, [name]!"
-
     Args:
         name (str): The person's name
 
     Returns:
         str: A greeting message
 
-    Examples:
-        >>> create_greeting("Alice")
-        "Hello, Alice!"
-        >>> create_greeting("Bob")
-        "Hello, Bob!"
     """
-    # TODO: Your code here
-    # Hint: Use string concatenation with +
-    # Format: "Hello, " + name + "!"
-
-    return ""  # ← DELETE this and write your code
+    return "Hello, " + name + "!"
 
 
 def create_goodbye(name):
     """
     Create a goodbye message for a person.
-
-    TODO: Complete this function
-    It should take a name and return "Goodbye, [name]!"
 
     Args:
         name (str): The person's name
@@ -59,20 +44,13 @@ def create_goodbye(name):
     Returns:
         str: A goodbye message
 
-    Example:
-        >>> create_goodbye("Alice")
-        "Goodbye, Alice!"
     """
-    # TODO: Your code here
-    pass  # ← DELETE this and write your code
+    return f"Goodbye, {name}!"
 
 
 def create_introduction(name, age):
     """
     Create an introduction message with name and age.
-
-    TODO: Complete this function
-    It should return "My name is [name] and I am [age] years old."
 
     Args:
         name (str): The person's name
@@ -81,25 +59,13 @@ def create_introduction(name, age):
     Returns:
         str: An introduction message
 
-    Example:
-        >>> create_introduction("Alice", 20)
-        "My name is Alice and I am 20 years old."
-
-    IMPORTANT: Remember to convert age to string using str()!
     """
-    # TODO: Your code here
-    # Hint: You need to use str(age) to convert the number to a string
-    # Format: "My name is " + name + " and I am " + str(age) + " years old."
-
-    return "My name is"  # ← BUG: This is incomplete!
+    return "My name is " + name + " and I am " + str(age) + " years old."
 
 
 def create_welcome_message(name, city):
     """
     Create a welcome message with name and city.
-
-    TODO: Fix this function
-    It should return "Welcome [name] from [city]!"
 
     Args:
         name (str): The person's name
@@ -108,23 +74,15 @@ def create_welcome_message(name, city):
     Returns:
         str: A welcome message
 
-    Example:
-        >>> create_welcome_message("Diana", "Mumbai")
-        "Welcome Diana from Mumbai!"
     """
-    # BUG: Missing spaces between the words!
-    # When concatenating strings, don't forget the spaces
-    message = "Welcome" + name + "from" + city + "!"
-    # ↑ Fix this line by adding proper spacing
+
+    message = "Welcome " + name + " from " + city + "!"
     return message
 
 
 def create_full_greeting(name, age, city):
     """
     Create a detailed greeting with name, age, and city.
-
-    TODO: Complete this function
-    It should return "Hello [name]! You are [age] years old and from [city]."
 
     Args:
         name (str): The person's name
@@ -138,9 +96,7 @@ def create_full_greeting(name, age, city):
         >>> create_full_greeting("Bob", 25, "Delhi")
         "Hello Bob! You are 25 years old and from Delhi."
     """
-    # TODO: Your code here
-    # Hint: Combine multiple strings and remember to use str(age)
-    pass
+    return "Hello " + name + "! You are " + str(age) + " years old and from " + city + "."
 
 
 # =============================================================================
