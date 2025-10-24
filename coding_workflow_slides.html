@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Fluency & Version Control</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .presentation-container {
+            width: 90%;
+            max-width: 1000px;
+            height: 90vh;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            padding: 60px;
+            overflow-y: auto;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        h1 {
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .code-bad {
+            background: #fff5f5;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .code-good {
+            background: #f0fff4;
+            border-left: 4px solid #51cf66;
+        }
+        
+        .navigation {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            margin: 0 5px;
+        }
+        
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, #ffd43b 60%);
+            padding: 2px 4px;
+        }
+        
+        .story-box {
+            background: #f8f9ff;
+            border: 2px dashed #667eea;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .activity-box {
+            background: #fff9e6;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .git-command {
+            display: inline-block;
+            background: #2d3436;
+            color: #00ff00;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            margin: 5px;
+        }
+        
+        ul {
+            margin-left: 30px;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">20</span>
+        </div>
+        
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1 style="font-size: 3em; text-align: center; margin-top: 100px;">Coding Fluency & Version Control</h1>
+            <h2 style="text-align: center; color: #999; font-size: 1.5em;">Week 2: Building Good Habits Early</h2>
+            <p style="text-align: center; margin-top: 50px; font-size: 1.3em;">
+                From Chaos to Collaboration 🚀
+            </p>
+        </div>
+        
+        <!-- Slide 2: Agenda -->
+        <div class="slide">
+            <h1>Today's Journey</h1>
+            <div class="two-column">
+                <div>
+                    <h3>Part 1: Coding Fluency (40 min)</h3>
+                    <ul>
+                        <li>Why workflow matters</li>
+                        <li>File organization</li>
+                        <li>Clean code principles</li>
+                        <li>Documentation basics</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Part 2: Version Control (40 min)</h3>
+                    <ul>
+                        <li>What is Git?</li>
+                        <li>Personal benefits</li>
+                        <li>Team collaboration</li>
+                        <li>Hands-on practice</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-style: italic;">
+                "The best time to plant a tree was 20 years ago. The second best time is now."
+            </p>
+        </div>
+        
+<!-- Slide 3: Opening Story -->
+<div class="slide">
+    <h1>Let's Start With a Story...</h1>
+    <div class="story-box">
+        <h3>🌶️ The Masala Recipe Disaster</h3>
+        <p>Imagine your nani’s legendary masala dosa recipe. She writes it down carefully:</p>
+        <ul>
+            <li>“2 tsp salt”</li>
+            <li>“Crispy on both sides”</li>
+            <li>“Serve with coconut chutney.”</li>
+        </ul>
+        <p>You take the recipe. You don’t like too much salt, so you make it 1 tsp.</p>
+        <p>Your brother decides dosa is boring, adds Maggi masala.</p>
+        <p>Your cousin is a rebel — swaps coconut chutney for ketchup.</p>
+        <p>Someone else prints the wrong version and gives it to the neighbour.</p>
+        <p>At the party… half the dosas are salty, some taste like Maggi, some have no chutney, and one person’s dosa looks suspiciously like an omelette.</p>
+        <p><strong>Now nani is angry. No one remembers what the original said. Everyone is blaming everyone else.</strong></p>
+        <p style="margin-top: 20px;"><strong>This is EXACTLY what happens with code without proper workflow!</strong></p>
+        <p style="margin-top: 10px;"><em>Git is basically nani’s way of saying: “Who changed my recipe? And when? Show me the proof.”</em></p>
+    </div>
+</div>
+
+        
+        <!-- Slide 4: Part 1 Introduction -->
+        <div class="slide">
+            <h1>Part 1: Coding Fluency</h1>
+            <h2>What Makes Code "Good"?</h2>
+            <p>It's not just about working code, it's about:</p>
+            <ul>
+                <li>✅ <span class="highlight">Readable</span> - Others (including future you) can understand it</li>
+                <li>✅ <span class="highlight">Organized</span> - Easy to find what you need</li>
+                <li>✅ <span class="highlight">Maintainable</span> - Easy to fix and improve</li>
+                <li>✅ <span class="highlight">Collaborative</span> - Others can work with it</li>
+            </ul>
+        </div>
+        
+        <!-- Slide 5: File Organization -->
+        <div class="slide">
+            <h1>File Organization Matters</h1>
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #ff6b6b;">❌ Messy Desktop Approach</h3>
+                    <div class="code-example code-bad">
+                        test.py<br>
+                        test2.py<br>
+                        test_final.py<br>
+                        test_final_FINAL.py<br>
+                        untitled1.py<br>
+                        asdfgh.py<br>
+                        homework.py<br>
+                        homework_copy.py
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: #51cf66;">✅ Organized Approach</h3>
+                    <div class="code-example code-good">
+                        my_project/<br>
+                        ├── code/<br>
+                        │   ├── calculator.py<br>
+                        │   └── helpers.py<br>
+                        ├── data/<br>
+                        │   └── input.txt<br>
+                        ├── tests/<br>
+                        │   └── test_calc.py<br>
+                        └── README.md
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Naming Conventions -->
+        <div class="slide">
+            <h1>Names Tell Stories</h1>
+            <h2>Variable & Function Naming</h2>
+            <div class="code-example code-bad">
+                <strong># ❌ Bad - What does this do?</strong><br>
+                x = 10<br>
+                y = 3<br>
+                z = x + y<br>
+                def calc(a, b):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return a * b * 0.1
+            </div>
+            <div class="code-example code-good">
+                <strong># ✅ Good - Self-explanatory!</strong><br>
+                price = 10<br>
+                tax_rate = 3<br>
+                total_cost = price + tax_rate<br>
+                def calculate_discount(original_price, discount_percent):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return original_price * discount_percent * 0.01
+            </div>
+        </div>
+        
+        <!-- Slide 7: Comments & Documentation -->
+        <div class="slide">
+            <h1>Comments: Your Future Self Will Thank You</h1>
+            <div class="code-example">
+                <strong># Rule 1: Comments explain WHY, not WHAT</strong><br><br>
+                # ❌ Bad comment (explains what - obvious from code)<br>
+                x = x + 1  # Add 1 to x<br><br>
+                # ✅ Good comment (explains why)<br>
+                retry_count = retry_count + 1  # Increment to avoid infinite loop on network failure
+            </div>
+            <div class="code-example">
+                <strong># Rule 2: Use docstrings for functions</strong><br><br>
+                def calculate_grade(score, total):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"""<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Calculate percentage grade from score.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Args:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score: Points earned<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total: Maximum points possible<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Returns:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Percentage as float<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"""<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return (score / total) * 100
+            </div>
+        </div>
+        
+        <!-- Slide 8: Save Early, Save Often -->
+        <div class="slide">
+            <h1>The Golden Rule: Save Early, Save Often</h1>
+            <div class="story-box">
+                <h3>Gaming Analogy 🎮</h3>
+                <p>Remember playing a game for 3 hours and then it crashed?</p>
+                <p>You lost EVERYTHING because you didn't save!</p>
+            </div>
+            <h3>In Coding:</h3>
+            <ul>
+                <li>💾 Hit <strong>Ctrl+S</strong> after every few lines</li>
+                <li>📝 Save before testing your code</li>
+                <li>🔄 Save before making big changes</li>
+                <li>⏰ Save before taking a break</li>
+            </ul>
+            <p style="margin-top: 30px;"><em>Pro tip: Most editors can auto-save! Turn it on!</em></p>
+        </div>
+        
+        <!-- Slide 9: Activity 1 -->
+        <div class="slide">
+            <h1>Activity: Fix This Code!</h1>
+            <div class="activity-box">
+                <h3>You have 3 minutes to improve this code:</h3>
+                <div class="code-example">
+                    # Current messy code<br>
+                    x=5<br>
+                    y=3<br>
+                    z=x+y<br>
+                    print(z)<br>
+                    a=10<br>
+                    b=a/2<br>
+                    print(b)
+                </div>
+                <p><strong>Apply what we learned:</strong></p>
+                <ul>
+                    <li>Better variable names</li>
+                    <li>Add comments</li>
+                    <li>Proper spacing</li>
+                    <li>Explain the purpose</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide 10: Part 2 Introduction -->
+        <div class="slide">
+            <h1>Part 2: Version Control with Git</h1>
+            <h2>What if I told you...</h2>
+            <ul>
+                <li>You could undo any mistake from last week? ⏮️</li>
+                <li>You could see exactly what you changed and when? 📅</li>
+                <li>Multiple people could work on same code without conflicts? 👥</li>
+                <li>You could experiment without fear of breaking things? 🔬</li>
+            </ul>
+            <h2 style="text-align: center; margin-top: 40px;">Welcome to Git!</h2>
+        </div>
+        
+        <!-- Slide 11: Git is Like Google Docs -->
+        <div class="slide">
+            <h1>Git = Google Docs for Code</h1>
+            <div class="two-column">
+                <div>
+                    <h3>Google Docs 📄</h3>
+                    <ul>
+                        <li>Auto-saves changes</li>
+                        <li>Shows version history</li>
+                        <li>Multiple people can edit</li>
+                        <li>Can restore old versions</li>
+                        <li>Shows who changed what</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Git 🔧</h3>
+                    <ul>
+                        <li>You control when to save</li>
+                        <li>Complete history of changes</li>
+                        <li>Team collaboration</li>
+                        <li>Time travel to any version</li>
+                        <li>Shows who, what, when, why</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px;">
+                <strong>But Git is MORE powerful - it's designed for code!</strong>
+            </p>
+        </div>
+        
+        <!-- Slide 12: Personal Benefits -->
+        <div class="slide">
+            <h1>Why Git? Personal Benefits First!</h1>
+            <div class="story-box">
+                <h3>Scenario 1: "It was working yesterday!" 😱</h3>
+                <p>Your calculator program was perfect. You added one feature... now nothing works!</p>
+                <p><strong>With Git:</strong> <span class="git-command">git checkout yesterday's_version</span> - Problem solved!</p>
+            </div>
+            <div class="story-box">
+                <h3>Scenario 2: "What did I change?" 🤔</h3>
+                <p>Your code has a bug. You changed something last week but can't remember what.</p>
+                <p><strong>With Git:</strong> <span class="git-command">git diff</span> - See exactly what changed!</p>
+            </div>
+        </div>
+        
+        <!-- Slide 13: Git Workflow Visual -->
+        <div class="slide">
+            <h1>How Git Works: 3 Simple Steps</h1>
+            <div style="text-align: center; margin: 30px 0;">
+                <h2>Your Code Journey</h2>
+                <div style="display: flex; justify-content: space-around; align-items: center; margin: 40px 0;">
+                    <div style="text-align: center;">
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                            <h3>1. Working Directory</h3>
+                            <p>Write your code</p>
+                            <p class="emoji">💻</p>
+                        </div>
+                    </div>
+                    <div style="font-size: 2em;">→</div>
+                    <div style="text-align: center;">
+                        <div style="background: #fff9e6; padding: 20px; border-radius: 10px;">
+                            <h3>2. Staging Area</h3>
+                            <p>Select changes to save</p>
+                            <p class="emoji">📦</p>
+                            <p class="git-command">git add</p>
+                        </div>
+                    </div>
+                    <div style="font-size: 2em;">→</div>
+                    <div style="text-align: center;">
+                        <div style="background: #f0fff4; padding: 20px; border-radius: 10px;">
+                            <h3>3. Repository</h3>
+                            <p>Save snapshot forever</p>
+                            <p class="emoji">💾</p>
+                            <p class="git-command">git commit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 14: Essential Commands -->
+        <div class="slide">
+            <h1>Only 5 Commands to Start!</h1>
+            <div class="code-example">
+                <h3>The Essential Five:</h3>
+                <p><span class="git-command">git status</span> → 🔍 "What's happening?"</p>
+                <p><span class="git-command">git add .</span> → 📦 "Stage all my changes"</p>
+                <p><span class="git-command">git commit -m "message"</span> → 💾 "Save this version"</p>
+                <p><span class="git-command">git push</span> → ☁️ "Upload to cloud"</p>
+                <p><span class="git-command">git pull</span> → ⬇️ "Download latest changes"</p>
+            </div>
+            <p style="margin-top: 30px; text-align: center; font-size: 1.3em;">
+                <strong>That's it! You can learn more commands later.</strong>
+            </p>
+        </div>
+        
+        <!-- Slide 15: Restaurant Kitchen Analogy -->
+        <div class="slide">
+            <h1>Team Collaboration: The Restaurant Kitchen</h1>
+            <div class="story-box">
+                <h3>Git Terms = Restaurant Kitchen 🍳</h3>
+                <ul>
+                    <li><strong>Main Branch</strong> = Master Recipe Book 📖</li>
+                    <li><strong>Feature Branch</strong> = Chef's experimental dish 🧪</li>
+                    <li><strong>Commit</strong> = Recipe saved after testing 📝</li>
+                    <li><strong>Pull Request</strong> = "Taste test my new dish!" 👨‍🍳</li>
+                    <li><strong>Merge</strong> = New dish added to menu ✅</li>
+                    <li><strong>Conflict</strong> = Two chefs changed same recipe 😅</li>
+                </ul>
+            </div>
+            <p style="margin-top: 30px;">Everyone can experiment without ruining the main cookbook!</p>
+        </div>
+        
+        <!-- Slide 16: Live Demo Plan -->
+        <div class="slide">
+            <h1>Let's Try It Together!</h1>
+            <div class="activity-box">
+                <h3>Demo: Class Favorite Movies List 🎬</h3>
+                <ol>
+                    <li>Create a new repository</li>
+                    <li>Add a file: <code>favorite_movies.txt</code></li>
+                    <li>Each "student" adds their favorite movie</li>
+                    <li>Create a conflict (two people edit same line)</li>
+                    <li>Resolve it together!</li>
+                </ol>
+                <p style="margin-top: 20px;"><strong>Watch how Git keeps track of everything!</strong></p>
+            </div>
+        </div>
+        
+        <!-- Slide 17: Commit Messages -->
+        <div class="slide">
+            <h1>Good Commit Messages Matter!</h1>
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #ff6b6b;">❌ Bad Messages</h3>
+                    <div class="code-example code-bad">
+                        "fixed stuff"<br>
+                        "asdfasdf"<br>
+                        "changes"<br>
+                        "updated code"<br>
+                        "idk"<br>
+                        "FINALLY WORKS!!!"
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: #51cf66;">✅ Good Messages</h3>
+                    <div class="code-example code-good">
+                        "Add subtraction function"<br>
+                        "Fix divide by zero error"<br>
+                        "Update student age validation"<br>
+                        "Add comments to calculator"<br>
+                        "Refactor variable names"<br>
+                        "Complete homework 2 requirements"
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px;">
+                <strong>Future you will appreciate good messages!</strong>
+            </p>
+        </div>
+        
+        <!-- Slide 18: Common Mistakes -->
+        <div class="slide">
+            <h1>Common Beginner Mistakes (It's OK!)</h1>
+            <ul>
+                <li>😅 <strong>Forgetting to commit</strong> - Set reminders!</li>
+                <li>😅 <strong>Committing everything at once</strong> - Small, frequent commits are better</li>
+                <li>😅 <strong>Panic when seeing conflicts</strong> - They're normal and fixable!</li>
+                <li>😅 <strong>Not pulling before pushing</strong> - Always sync first</li>
+                <li>😅 <strong>Bad commit messages</strong> - Take 10 seconds to write clearly</li>
+            </ul>
+            <div class="story-box" style="margin-top: 30px;">
+                <p><strong>Remember:</strong> Everyone makes these mistakes. Even professors! The key is learning from them.</p>
+            </div>
+        </div>
+        
+        <!-- Slide 19: Homework -->
+        <div class="slide">
+            <h1>Your Mission This Week</h1>
+            <div class="activity-box">
+                <h3>Homework Assignment 📚</h3>
+                <ol>
+                    <li>Create a GitHub account (if you don't have one)</li>
+                    <li>Create a repository called "week2-python"</li>
+                    <li>Write a simple Python program using Week 1 concepts:
+                        <ul>
+                            <li>Variables</li>
+                            <li>Operators</li>
+                            <li>Input/Output</li>
+                        </ul>
+                    </li>
+                    <li>Make at least 3 commits with meaningful messages</li>
+                    <li>Include a README.md explaining your program</li>
+                </ol>
+                <p style="margin-top: 20px;"><strong>Bonus:</strong> Add comments and use good variable names!</p>
+            </div>
+        </div>
+        
+        <!-- Slide 20: Summary -->
+        <div class="slide">
+            <h1>Key Takeaways</h1>
+            <div class="two-column">
+                <div>
+                    <h3>Coding Fluency ✨</h3>
+                    <ul>
+                        <li>Organize your files</li>
+                        <li>Use meaningful names</li>
+                        <li>Comment your code</li>
+                        <li>Save frequently</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Version Control 🔧</h3>
+                    <ul>
+                        <li>Git = Time machine for code</li>
+                        <li>Start with 5 commands</li>
+                        <li>Commit often with good messages</li>
+                        <li>Don't fear mistakes</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <h2>Remember: Good Habits Now = Less Pain Later!</h2>
+                <p style="font-size: 1.5em; margin-top: 20px;">Questions? Let's discuss! 🤝</p>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button id="prev-btn" onclick="changeSlide(-1)">← Previous</button>
+            <button id="next-btn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = currentSlide;
+            
+            // Update button states
+            document.getElementById('prev-btn').disabled = currentSlide === 1;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides;
+        }
+        
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+        
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>
