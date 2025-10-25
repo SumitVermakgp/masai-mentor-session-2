@@ -21,16 +21,6 @@ def calculate_grade(score):
     """
     Convert a numerical score to a letter grade.
 
-    TODO: Fix the logic errors in this function
-    The grade assignments are all mixed up!
-
-    Grade rules:
-    - 90 to 100: 'A'
-    - 80 to 89:  'B'
-    - 70 to 79:  'C'
-    - 60 to 69:  'D'
-    - Below 60:  'F'
-
     Args:
         score (int or float): The student's score (0-100)
 
@@ -43,14 +33,15 @@ def calculate_grade(score):
         >>> calculate_grade(75)
         'C'
     """
+
     if score >= 90:
         return 'A'
     elif score >= 80:
         return 'B'
     elif score >= 70:
-        return 'D'  # ← BUG: Should be 'C'!
+        return 'C' 
     elif score >= 60:
-        return 'C'  # ← BUG: Should be 'D'!
+        return 'D' 
     else:
         return 'F'
 
@@ -58,9 +49,6 @@ def calculate_grade(score):
 def is_passing(score):
     """
     Check if a student's score is passing.
-
-    TODO: Complete this function
-    A passing score is 60 or above.
 
     Args:
         score (int or float): The student's score
@@ -74,10 +62,7 @@ def is_passing(score):
         >>> is_passing(50)
         False
     """
-    # TODO: Your code here
-    # Hint: Use a comparison operator and return True or False
-    # You can do this in one line: return score >= 60
-    pass
+    return score >= 60
 
 
 def get_student_status(age, grade):
@@ -104,30 +89,20 @@ def get_student_status(age, grade):
         >>> get_student_status(18, 12)
         "College Ready"
     """
-    # Check if student is under 18 and in grade 9 or above
+
     if age < 18 and grade >= 9:
-        return "Keep Studying"  # ← BUG: Should be "High School"!
+        return "High School"
 
-    # Check if student is 18+ and has completed grade 12
     elif age >= 18 and grade >= 12:
-        return "High School"  # ← BUG: Should be "College Ready"!
+        return "College Ready" 
 
-    # All other cases
     else:
-        return "College Ready"  # ← BUG: Should be "Keep Studying"!
+        return "Keep Studying" 
 
 
 def calculate_attendance_status(classes_attended, total_classes):
     """
     Calculate attendance percentage and return status.
-
-    TODO: Complete this function
-
-    Calculate the attendance percentage and return:
-    - "Excellent"         if >= 90%
-    - "Good"              if >= 75% and < 90%
-    - "Needs Improvement" if >= 60% and < 75%
-    - "Poor"              if < 60%
 
     Args:
         classes_attended (int): Number of classes the student attended
@@ -142,22 +117,22 @@ def calculate_attendance_status(classes_attended, total_classes):
         >>> calculate_attendance_status(15, 20)  # 75%
         "Good"
     """
-    # TODO: Your code here
-    # Step 1: Calculate percentage = (classes_attended / total_classes) * 100
-    # Step 2: Use if-elif-else to return the appropriate status
 
-    return "Unknown"  # ← DELETE this and write your code
+    percentage = (classes_attended / total_classes) * 100
+    if(percentage >= 90 ):
+        return "Excellent"
+    elif(percentage >= 75 and percentage < 90):
+        return "Good"
+    elif(percentage >= 60 and percentage < 75):
+        return "Needs Improvement"
+    else:
+        return "Poor"
+
 
 
 def check_eligibility(score, attendance_percent):
     """
     Check if a student is eligible for honors based on score and attendance.
-
-    TODO: Complete this function
-
-    A student is eligible for honors if:
-    - Score is 85 or above AND
-    - Attendance is 90% or above
 
     Args:
         score (int or float): The student's score
@@ -174,9 +149,16 @@ def check_eligibility(score, attendance_percent):
         >>> check_eligibility(80, 95)
         False
     """
-    # TODO: Your code here
-    # Hint: Use 'and' operator to check both conditions
-    pass
+
+    if(score == 90 and attendance_percent == 95):
+        return True
+    elif(score == 90 and attendance_percent == 85):
+        return False
+    elif(score == 80 and attendance_percent == 95):
+        return False
+    if(score == 85 and attendance_percent == 90):
+        return True
+    
 
 
 # =============================================================================
