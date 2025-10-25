@@ -2,7 +2,6 @@
 Calculator Exercise - Week 2 Python Workshop
 
 This module contains basic mathematical functions.
-Your job is to fix the bugs and complete the missing functions!
 
 LEARNING FOCUS:
 - Proper function naming (use descriptive names with snake_case)
@@ -41,9 +40,6 @@ def subtract_numbers(a, b):
     """
     Subtract the second number from the first number.
 
-    TODO: Fix this function - it's doing addition instead of subtraction!
-    It should return a minus b
-
     Args:
         a (int or float): The first number
         b (int or float): The number to subtract
@@ -55,16 +51,12 @@ def subtract_numbers(a, b):
         >>> subtract_numbers(10, 4)
         6
     """
-    # BUG: This is doing addition, not subtraction!
-    return a + b  # ← Fix this line!
+    return a - b
 
 
 def multiply_numbers(a, b):
     """
     Multiply two numbers together.
-
-    TODO: Complete this function
-    It should return a times b
 
     Args:
         a (int or float): The first number
@@ -77,17 +69,12 @@ def multiply_numbers(a, b):
         >>> multiply_numbers(6, 7)
         42
     """
-    # DELETE the 'pass' statement below and write your code
-    pass
+    return a * b
 
 
 def divide_numbers(a, b):
     """
     Divide the first number by the second number.
-
-    TODO: Complete this function
-    It should return a divided by b
-    IMPORTANT: Handle the case when b is 0 (can't divide by zero!)
 
     Args:
         a (int or float): The number to divide (numerator)
@@ -102,19 +89,16 @@ def divide_numbers(a, b):
         >>> divide_numbers(10, 0)
         None
     """
-    # Hint: Use an if statement to check if b is 0 first!
-    # If b is 0, return None
-    # Otherwise, return a / b
 
-    return 0  # ← DELETE this line and write your code
+    if b == 0:
+        return "None (can't divide by zero)"
+    else:
+        return a / b
 
 
 def calculate_average(num1, num2, num3):
     """
     Calculate the average of three numbers.
-
-    TODO: Fix this function
-    The formula for average is: (num1 + num2 + num3) / 3
 
     Args:
         num1 (int or float): First number
@@ -128,8 +112,8 @@ def calculate_average(num1, num2, num3):
         >>> calculate_average(10, 20, 30)
         20.0
     """
-    # BUG: We forgot to add num3 in the calculation!
-    total = num1 + num2  # ← Fix this line!
+
+    total = num1 + num2 + num3
     return total / 3
 
 
