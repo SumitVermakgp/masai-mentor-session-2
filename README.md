@@ -27,7 +27,7 @@ You should know:
 Open terminal/command prompt and run:
 ```bash
 # Replace YOUR-USERNAME with your actual GitHub username!
-git clone https://github.com/YOUR-USERNAME/python-week2-workshop
+git clone https://github.com/SumitVermakgp/masai-mentor-session-2.git
 cd python-week2-workshop
 ```
 
