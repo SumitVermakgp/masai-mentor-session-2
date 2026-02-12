@@ -42,8 +42,9 @@ def create_greeting(name):
     # TODO: Your code here
     # Hint: Use string concatenation with +
     # Format: "Hello, " + name + "!"
+  
 
-    return ""  # ← DELETE this and write your code
+    return  "Hello, " + name + "!"# ← DELETE this and write your code
 
 
 def create_goodbye(name):
@@ -64,7 +65,8 @@ def create_goodbye(name):
         "Goodbye, Alice!"
     """
     # TODO: Your code here
-    pass  # ← DELETE this and write your code
+    return "Goodbye, "+ name+"!"# ← DELETE this and write your code
+   
 
 
 def create_introduction(name, age):
@@ -91,7 +93,7 @@ def create_introduction(name, age):
     # Hint: You need to use str(age) to convert the number to a string
     # Format: "My name is " + name + " and I am " + str(age) + " years old."
 
-    return "My name is"  # ← BUG: This is incomplete!
+    return "My name is "+ name+" and I am "+str(age)+" years old."# ← BUG: This is incomplete!
 
 
 def create_welcome_message(name, city):
@@ -114,7 +116,7 @@ def create_welcome_message(name, city):
     """
     # BUG: Missing spaces between the words!
     # When concatenating strings, don't forget the spaces
-    message = "Welcome" + name + "from" + city + "!"
+    message = "Welcome " + name + " from " + city + "!"
     # ↑ Fix this line by adding proper spacing
     return message
 
@@ -140,7 +142,7 @@ def create_full_greeting(name, age, city):
     """
     # TODO: Your code here
     # Hint: Combine multiple strings and remember to use str(age)
-    pass
+    return "Hello "+name+"! You are "+str(age)+" years old and from "+city+"."
 
 
 # =============================================================================

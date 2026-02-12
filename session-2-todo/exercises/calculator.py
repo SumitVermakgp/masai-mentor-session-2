@@ -56,7 +56,7 @@ def subtract_numbers(a, b):
         6
     """
     # BUG: This is doing addition, not subtraction!
-    return a + b  # ← Fix this line!
+    return a - b  # ← Fix this line!
 
 
 def multiply_numbers(a, b):
@@ -78,7 +78,7 @@ def multiply_numbers(a, b):
         42
     """
     # DELETE the 'pass' statement below and write your code
-    pass
+    return a*b
 
 
 def divide_numbers(a, b):
@@ -105,8 +105,10 @@ def divide_numbers(a, b):
     # Hint: Use an if statement to check if b is 0 first!
     # If b is 0, return None
     # Otherwise, return a / b
+    if b==0:
+        return None
 
-    return 0  # ← DELETE this line and write your code
+    return a/b # ← DELETE this line and write your code
 
 
 def calculate_average(num1, num2, num3):
@@ -129,7 +131,7 @@ def calculate_average(num1, num2, num3):
         20.0
     """
     # BUG: We forgot to add num3 in the calculation!
-    total = num1 + num2  # ← Fix this line!
+    total = num1 + num2 +num3 # ← Fix this line!
     return total / 3
 
 
