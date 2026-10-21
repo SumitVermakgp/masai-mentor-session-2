@@ -48,9 +48,9 @@ def calculate_grade(score):
     elif score >= 80:
         return 'B'
     elif score >= 70:
-        return 'D'  # ← BUG: Should be 'C'!
+        return 'C'  # ← BUG: Should be 'C'!
     elif score >= 60:
-        return 'C'  # ← BUG: Should be 'D'!
+        return 'D'  # ← BUG: Should be 'D'!
     else:
         return 'F'
 
@@ -77,7 +77,10 @@ def is_passing(score):
     # TODO: Your code here
     # Hint: Use a comparison operator and return True or False
     # You can do this in one line: return score >= 60
-    pass
+    if score >= 60:
+        return True
+    else:
+        return False
 
 
 def get_student_status(age, grade):
@@ -106,15 +109,15 @@ def get_student_status(age, grade):
     """
     # Check if student is under 18 and in grade 9 or above
     if age < 18 and grade >= 9:
-        return "Keep Studying"  # ← BUG: Should be "High School"!
+        return "High School"  # ← BUG: Should be "High School"!
 
     # Check if student is 18+ and has completed grade 12
     elif age >= 18 and grade >= 12:
-        return "High School"  # ← BUG: Should be "College Ready"!
+        return "College Ready"  # ← BUG: Should be "College Ready"!
 
     # All other cases
     else:
-        return "College Ready"  # ← BUG: Should be "Keep Studying"!
+        return "Keep Studying"  # ← BUG: Should be "Keep Studying"!
 
 
 def calculate_attendance_status(classes_attended, total_classes):
@@ -146,7 +149,15 @@ def calculate_attendance_status(classes_attended, total_classes):
     # Step 1: Calculate percentage = (classes_attended / total_classes) * 100
     # Step 2: Use if-elif-else to return the appropriate status
 
-    return "Unknown"  # ← DELETE this and write your code
+    percentage = (classes_attended / total_classes) * 100
+    if percentage >= 90:
+        return "Excellent"
+    elif percentage >= 75:
+        return "Good"
+    elif percentage >= 60:
+        return "Needs Improvement"
+    else:
+        return "Poor"
 
 
 def check_eligibility(score, attendance_percent):
@@ -176,7 +187,10 @@ def check_eligibility(score, attendance_percent):
     """
     # TODO: Your code here
     # Hint: Use 'and' operator to check both conditions
-    pass
+    if score >= 85 and attendance_percent >= 90:
+        return True
+    else:
+        return False
 
 
 # =============================================================================
